@@ -4,8 +4,8 @@ from PIL import Image
 import io
 
 # URL de votre API Flask
-API_URL_UNET = "http://127.0.0.1:5000/predict-mask-unet"
-API_URL_SEG = "http://127.0.0.1:5000/predict-mask-seg"
+API_URL_UNET = "https://semantic-seg.azurewebsites.net/predict-mask-unet"
+API_URL_SEG = "https://semantic-seg.azurewebsites.net/predict-mask-seg"
 
 # CSS personnalisé pour ajuster les couleurs
 custom_css = """
