@@ -4,7 +4,7 @@ name: Deploy Python package to Azure Web App as a Linux web app.
 on:
   push:
     branches:
-      - api
+      - main
   workflow_dispatch:
 # CONFIGURATION
 # For help, go to https://github.com/Azure/Actions
