@@ -53,11 +53,11 @@ jobs:
       mkdir models/unet
       cd models/unet
       az storage blob download \
-      --account-name kerasmodels \
+      --account-name cvmodels \
       --container-name models  \
       --name mini_unet_hd_complete.h5 \
       --file mini_unet_hd_complete.h5 \
-      --account-key XyAXRxGbQEAfR+C2Yd7LLQ5E/7h2A3JiDaEehqMDBlXCE6biW7jOCOPTy7qI9GxoXqmCVA9XVbhl+AStepmviA== \
+      --account-key lNw5UtQJv83ZPvea4P1ZniA8Miwa7JlXDNhHSnzKJayT86PG+ZtlmLYuLldy+y4NTxerrF4yS8Tl+AStjvdw0A== \
       --auth-mode key
 
   # Azure login
