@@ -2,8 +2,6 @@ from flask import Flask, request, send_file
 import numpy as np
 import torch
 import torch.nn.functional as F
-from torchvision import transforms
-from PIL import Image
 import cv2
 from transformers import SegformerForSemanticSegmentation
 from io import BytesIO
