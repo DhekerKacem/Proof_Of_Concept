@@ -56,7 +56,7 @@ if uploaded_file is not None:
     # Afficher l'image téléchargée
     image = Image.open(uploaded_file)
     st.image(image, caption='Image téléchargée', use_column_width=True)
-    st.text("Description de l'image téléchargée : [insérer description]")
+    st.text("Description de l'image téléchargée : [Image envoyée aux modèles pour la segmentation sémantique]")
     
     # Convertir l'image en octets
     img_bytes = io.BytesIO()
@@ -76,7 +76,7 @@ if uploaded_file is not None:
         
         # Afficher l'image prédite
         st.image(predicted_image, caption='Image avec Masque Prédit : UNET', use_column_width=True)
-        st.text("Description de l'image prédite par UNET : [insérer description]")
+        st.text("Description de l'image prédite par UNET : [Masque prédit par U-Net Mini]")
     else:
         st.write("Erreur dans la prédiction. Code de réponse:", response_unet.status_code)
 
@@ -88,6 +88,6 @@ if uploaded_file is not None:
         
         # Afficher l'image prédite
         st.image(predicted_image, caption='Image avec Masque Prédit : SEG_FORMER', use_column_width=True)
-        st.text("Description de l'image prédite par SEG_FORMER : [insérer description]")
+        st.text("Description de l'image prédite par SEG_FORMER : [Masque prédit par SegFormer]")
     else:
         st.write("Erreur dans la prédiction. Code de réponse:", response_seg.status_code)
