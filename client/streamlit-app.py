@@ -85,4 +85,3 @@ if uploaded_file is not None:
         st.image(predicted_image, caption='Image avec Masque Prédit : SEG_FORMER', use_column_width=True)
     else:
         st.write("Erreur dans la prédiction. Code de réponse:", response_unet.status_code)
-
