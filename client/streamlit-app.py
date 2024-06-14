@@ -28,6 +28,9 @@ custom_css = """
 # Injecter le CSS personnalisé
 st.markdown(custom_css, unsafe_allow_html=True)
 
+# Titre de la page HTML pour l'accessibilité
+st.markdown("<title>Dashboard For Semantic Segmentation</title>", unsafe_allow_html=True)
+
 st.title("Dashboard For Semantic Segmentation")
 
 # Create a container for the images
@@ -37,14 +40,14 @@ with container:
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image("assets/combined_image_resized.png", caption="First Image")
+        st.image("assets/combined_image_resized.png", caption="Exemples du dataset")
+        st.text("Description de la première image : [Voici 3 exemples des images d'entrainement et leurs masques respectifs]")
 
     with col2:
-        st.image("assets/labels_distribution_resized.png", caption="Second Image")
-
+        st.image("assets/labels_distribution_resized.png", caption="Distribution des labels")
+        st.text("Description de la seconde image : [Le graphique ci-dessus décrit la distribution des labels du train set]")
 
 st.title("Application de Segmentation Sémantique")
-
 
 # Téléchargement de l'image
 uploaded_file = st.file_uploader("Choisissez une image...", type=["jpg", "jpeg", "png"], help="Téléchargez une image au format JPG, JPEG ou PNG.")
@@ -53,6 +56,7 @@ if uploaded_file is not None:
     # Afficher l'image téléchargée
     image = Image.open(uploaded_file)
     st.image(image, caption='Image téléchargée', use_column_width=True)
+    st.text("Description de l'image téléchargée : [insérer description]")
     
     # Convertir l'image en octets
     img_bytes = io.BytesIO()
@@ -72,6 +76,7 @@ if uploaded_file is not None:
         
         # Afficher l'image prédite
         st.image(predicted_image, caption='Image avec Masque Prédit : UNET', use_column_width=True)
+        st.text("Description de l'image prédite par UNET : [insérer description]")
     else:
         st.write("Erreur dans la prédiction. Code de réponse:", response_unet.status_code)
 
@@ -83,5 +88,6 @@ if uploaded_file is not None:
         
         # Afficher l'image prédite
         st.image(predicted_image, caption='Image avec Masque Prédit : SEG_FORMER', use_column_width=True)
+        st.text("Description de l'image prédite par SEG_FORMER : [insérer description]")
     else:
-        st.write("Erreur dans la prédiction. Code de réponse:", response_unet.status_code)
+        st.write("Erreur dans la prédiction. Code de réponse:", response_seg.status_code)
