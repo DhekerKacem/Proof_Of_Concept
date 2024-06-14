@@ -47,7 +47,7 @@ def overlay_mask_on_image(image_bytes, mask):
 
 @app.route("/predict-mask-seg", methods=["POST"])
 def predict_mask_seg():    
-    model_seg = SegformerForSemanticSegmentation.from_pretrained('models/seg')
+    model_seg = SegformerForSemanticSegmentation.from_pretrained('../models/seg')
     model_seg.eval()
 
     image_bytes = request.data
@@ -145,7 +145,7 @@ def convert_unet_mask_to_color(mask):
 
 def process_mask_unet(raw_data):
     image, size_x, size_y = preprocess_image_unet(raw_data)
-    model_unet = keras.models.load_model("models/unet/mini_unet_hd_complete.h5", custom_objects={"CustomMeanIoU": CustomMeanIoU})
+    model_unet = keras.models.load_model("../models/unet/mini_unet_hd_complete.h5", custom_objects={"CustomMeanIoU": CustomMeanIoU})
     prediction = model_unet.predict(image)
     predicted_mask = np.argmax(prediction, axis=-1).squeeze()  # Supprimer la dimension de batch
     
